@@ -1,0 +1,51 @@
+<idea-plugin>
+  <id>org.zk.ip.SeekKeyword</id>
+  <name>Seek Keyword</name>
+  <version>0.0.1</version>
+  <vendor email="247213579@qq.com">zk</vendor>
+
+  <description><![CDATA[
+      seek the keywords in the file.
+    ]]></description>
+
+  <change-notes><![CDATA[
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+<!--  <actions>
+    &lt;!&ndash; Add your actions here &ndash;&gt;
+    <action id="seekKeyword" class="org.zk.ip.SeekKeyword" text="Seek Keyword"
+            description="seek the same keyword in the file">
+      <add-to-group group-id="EditMenu" anchor="after" relative-to-action="FileEditor.OpenDataEditor"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl k"/>
+    </action>
+  </actions>-->
+
+  <actions>
+    <group id="org.zk.ip.SeekKeywordGroup" text="Seek Keyword" popup="true">
+      <add-to-group group-id="EditMenu" anchor="after" relative-to-action="FileEditor.OpenDataEditor"/>
+      <action class="org.zk.ip.SeekPreviousKeyword" id="org.zk.ip.SeekPreviousKeyword"
+              text="Previous" description="seek the previous">
+        <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift k"/>
+      </action>
+      <action class="org.zk.ip.SeekNextKeyword" id="org.zk.ip.SeekNextKeyword"
+              text="Next" description="seek the next">
+        <keyboard-shortcut keymap="$default" first-keystroke="ctrl k"/>
+      </action>
+    </group>
+  </actions>
+
+</idea-plugin>
